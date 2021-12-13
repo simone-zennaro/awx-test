@@ -1,0 +1,11 @@
+---
+- hosts: awx-tg-test
+  become: yes # run as sudo
+
+  tasks:
+    - name: list root folder
+      shell: "ls /"
+      register: list
+    - name: Print the result from the list command
+      debug:
+        msg: "The result is {{ list }}"
